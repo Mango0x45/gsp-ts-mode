@@ -1,0 +1,13 @@
+* GSP Major Mode
+
+This package provides a Tree-Sitter powered major-mode for editing GSP
+files.  GSP is a preprocessor for HTML to make web-development less
+painful.  You can learn more about it [[https://git.thomasvoss.com/gsp][here]].
+
+At the moment this package provides support for indentation and syntax
+highlighting.  The level of syntax highlighting can be configured by
+setting ~treesit-font-lock-level~, and the specific elements to highlight
+can be configured by customizing ~treesit-font-lock-feature-list~.
+
+Other user-customizable variables of note are ~gsp-ts-indent-offset~,
+~gsp-ts-font-lock-rules~, and ~gsp-ts-ident-rules~.
