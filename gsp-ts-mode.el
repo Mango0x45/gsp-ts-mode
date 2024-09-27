@@ -25,6 +25,13 @@
 
 ;;; Code:
 
+(unless (treesit-available-p)
+  (error "Tree-Sitter support is required for `gsp-ts-mode'"))
+(require 'treesit)
+
+;;;###autoload
+(add-to-list 'auto-mode-alist '("\\.gsp\\'" . gsp-ts-mode))
+
 (defcustom gsp-ts-mode-indent-offset 2
   "Number of spaces for each indentation step in `gsp-ts-mode'."
   :version "1.0.0"
@@ -111,12 +118,6 @@ See the documentation for `treesit-simple-indent-rules' and
     (error "Tree-Sitter for GSP isn’t available"))
   (treesit-parser-create 'gsp)
   (gsp-ts--setup))
-
-(unless (treesit-available-p)
-  (error "Tree-Sitter support is required for `gsp-ts-mode'"))
-(require 'treesit)
-(when (treesit-ready-p 'gsp)
-  (add-to-list 'auto-mode-alist '("\\.gsp\\'" . gsp-ts-mode)))
 
 (provide 'gsp-ts-mode)
 ;;; gsp-ts-mode.el ends here
