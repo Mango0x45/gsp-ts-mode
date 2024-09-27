@@ -66,9 +66,10 @@
     :override t
     :feature comment
     ((comment (_) @font-lock-comment-face)))
-  "Font lock rules for `gsp-ts-mode'.  These settings are passed directly to `treesit-font-lock-rules'.
+  "Font lock rules for `gsp-ts-mode'.
 
-See the documentation for `treesit-font-lock-rules' for more information.")
+These settings are passed directly to `treesit-font-lock-rules'.  See the
+documentation for `treesit-font-lock-rules' for more information.")
 
 (defvar gsp-ts-indent-rules
   `((gsp
@@ -81,7 +82,8 @@ See the documentation for `treesit-font-lock-rules' for more information.")
      ((parent-is "text") parent-bol 0)
      (catch-all parent 0)
      (no-node parent 0)))
-  "Indentation rules for `gsp-ts-mode'.  These settings are assigned directly to `treesit-simple-indent-rules'.
+  "Indentation rules for `gsp-ts-mode'.
+These settings are assigned directly to `treesit-simple-indent-rules'.
 
 See the documentation for `treesit-simple-indent-rules' and
 `treesit-simple-indent-presets' for more information.")
