@@ -25,7 +25,7 @@
 
 ;;; Code:
 
-(defcustom gsp-ts-indent-offset 2
+(defcustom gsp-ts-mode-indent-offset 2
   "Number of spaces for each indentation step in `gsp-ts-mode'."
   :version "1.0.0"
   :type 'integer
@@ -75,10 +75,10 @@ documentation for `treesit-font-lock-rules' for more information.")
   `((gsp
      ((parent-is "document") column-0 0)
      ((node-is "}") parent-bol 0)
-     ((node-is "attr_list") parent gsp-ts-indent-offset)
+     ((node-is "attr_list") parent gsp-ts-mode-indent-offset)
      ((node-is ,(regexp-opt '("attr" "id_attr" "class_attr"))) first-sibling 0)
      ;; The node is nested not in another node, but in a node body
-     ((parent-is "node_body") grand-parent gsp-ts-indent-offset)
+     ((parent-is "node_body") grand-parent gsp-ts-mode-indent-offset)
      ((parent-is "text") parent-bol 0)
      (catch-all parent 0)
      (no-node parent 0)))
