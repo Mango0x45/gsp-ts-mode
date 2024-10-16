@@ -108,7 +108,7 @@ See the documentation for `treesit-simple-indent-rules' and
   (treesit-major-mode-setup))
 
 ;;;###autoload
-(define-derived-mode gsp-ts-mode prog-mode "GSP"
+(define-derived-mode gsp-ts-mode text-mode "GSP"
   "Major mode for editing GSP, powered by Tree-Sitter.
 
 \\<gsp-ts-mode-map>"
