@@ -32,6 +32,9 @@
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.gsp\\'" . gsp-ts-mode))
 
+
+;;; Variables and Options
+
 (defcustom gsp-ts-mode-indent-offset 2
   "Number of spaces for each indentation step in `gsp-ts-mode'."
   :version "1.0.0"
@@ -94,6 +97,9 @@ These settings are assigned directly to `treesit-simple-indent-rules'.
 
 See the documentation for `treesit-simple-indent-rules' and
 `treesit-simple-indent-presets' for more information.")
+
+
+;;; Major Mode Setup
 
 (defun gsp-ts--setup ()
   "Setup tree-sitter for `gsp-ts-mode'."
