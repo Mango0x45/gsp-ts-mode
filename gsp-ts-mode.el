@@ -99,6 +99,20 @@ See the documentation for `treesit-simple-indent-rules' and
 `treesit-simple-indent-presets' for more information.")
 
 
+;;; Integration with ‘electric-indent-mode’
+
+(defun gsp-ts-mode-electric-should-try-indent (char)
+  "Electric indentation hook for `gsp-ts-mode'.
+This function is a hook for `electric-indent-functions' to trigger
+automatic indentation as you type.
+
+See the documentation for `electric-indent-mode' and
+`electric-indent-functions' for more information."
+  ;; The documentation for ‘electric-indent-functions’ specifies that
+  ;; this should return ‘t’ and not some arbitrary non-nil value.
+  (and (= char ?\}) t))
+
+
 ;;; Major Mode Setup
 
 (defun gsp-ts--setup ()
@@ -123,7 +137,12 @@ See the documentation for `treesit-simple-indent-rules' and
   (unless (treesit-ready-p 'gsp)
     (error "Tree-Sitter for GSP isn’t available"))
   (treesit-parser-create 'gsp)
-  (gsp-ts--setup))
+  (gsp-ts--setup)
+
+  (with-eval-after-load 'electric
+    (add-hook 'electric-indent-functions
+              #'gsp-ts-mode-electric-should-try-indent
+              nil :local)))
 
 (provide 'gsp-ts-mode)
 ;;; gsp-ts-mode.el ends here
